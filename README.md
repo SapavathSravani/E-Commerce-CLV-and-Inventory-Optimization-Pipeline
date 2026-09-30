@@ -29,3 +29,30 @@ This project implements an end-to-end multi-tiered data engineering and business
 │ (Raw File)     │      │ Functions (8.0) │      │  Category Share  │      │ Audit & Alerts  │
 └────────────────┘      └─────────────────┘      └──────────────────┘      └─────────────────┘l/schema.sql
 mysql -u root -p < sql/clv_segmentation.sql
+
+Execution Log Output
+ [INFO] Successfully connected to MySQL database engine.
+ [INFO] Retrieved 969 Top 20% VIP customer records.
+ [INFO] Executing inventory stock velocity audit...
+
+============================================================
+         AUTOMATED WAREHOUSE INVENTORY AUDIT REPORT         
+============================================================
+! ALERT: High demand surge detected in [Furniture]. Units Sold: 1,591 | Action: Trigger automated restocking plan.
+! ALERT: High demand surge detected in [Books]. Units Sold: 1,571 | Action: Trigger automated restocking plan.
+! ALERT: High demand surge detected in [Kitchen]. Units Sold: 1,544 | Action: Trigger automated restocking plan.
+! ALERT: High demand surge detected in [Home Decor]. Units Sold: 1,539 | Action: Trigger automated restocking plan.
+! ALERT: High demand surge detected in [Clothing]. Units Sold: 1,513 | Action: Trigger automated restocking plan.
+============================================================
+
+ [INFO] Pipeline audit completed successfully.
+
+1. Clone Repository & Setup Environment
+git clone [https://github.com/SapavathSravani/ecommerce-clv-inventory-pipeline.git](https://github.com/SapavathSravani/ecommerce-clv-inventory-pipeline.git)
+cd ecommerce-clv-inventory-pipeline
+
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+pip install -r requirements.txt
+
+
