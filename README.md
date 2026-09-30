@@ -1,48 +1,31 @@
 # E-Commerce Customer Lifetime Value (CLV) & Inventory Optimization Pipeline
 
-An end-to-end data engineering and analytics pipeline built to process transactional e-commerce data, compute Customer Lifetime Value (CLV), isolate high-margin VIP customer cohorts, and automate backend warehouse inventory monitoring[cite: 1].
+![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-8.0-orange?style=for-the-badge&logo=mysql&logoColor=white)
+![PowerBI](https://img.shields.io/badge/Power_BI-Desktop-yellow?style=for-the-badge&logo=powerbi&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
 
-## Key Achievements & Resume Highlights
-• Analyzed 5k e-commerce transactions using MySQL 8.0 to aggregate 533.67M in revenue, maintaining a 14.94% net profit margin
-• Engineered SQL CTEs and window functions to compute Customer Lifetime Value, mapping category preferences for top customer cohorts
-• Automated Python/Pandas monitoring script using PyMySQL, generating programmatic alerts for warehouse inventory optimization
+## Project Overview
 
----
+Modern e-commerce enterprises generate massive volumes of transactional data daily. However, extracting actionable insights to balance customer retention marketing and inventory logistics remains an operational challenge. 
 
-## Project Overview & Key Architecture
+This project implements an end-to-end multi-tiered data engineering and business analytics pipeline that processes **5,000 enterprise transactional records** (spanning 2023 to 2025) across **4,844 unique customers** and **10 product categories**. 
 
-The pipeline processes **5,000 transaction records** spanning 731 days (October 2023 – October 2025) across **4,844 unique customers** and **10 distinct product categories**[cite: 1].
-
-### 4-Tier Pipeline Design
-1. **Tier 1: Data Hygiene & Ingestion (Excel/CSV)** – Initial cleaning, data validation, and basic baseline modeling
-2. **Tier 2: Relational Data Store (MySQL 8.0)** – Schema definition, dual CTEs, and window-function ranking (`ROW_NUMBER() OVER (PARTITION BY ...)`)
-3. **Tier 3: Executive Analytics (Power BI)** – Dashboard modeling, payment preference heatmaps, and category profitability share analysis
-4. **Tier 4: Automated Backend & Monitoring (Python 3.10+)** – Dynamic database audits via `SQLAlchemy`/`PyMySQL` triggering inventory restock velocity alerts
-
----
-
-## Analytical Key Metrics
-
-| Metric | Value |
-| :--- | :--- |
-| **Total Transaction Records** | 5,000 |
-| **Total Active Customers** | 4,844 |
-| **Total Generated Revenue** | ₹533,666,024.35 (~₹533.67M)|
-| **Total Net Profit** | ₹79,708,734.91 (~₹79.71M) |
-| **Net Profit Margin** | **14.94%** |
-| **Top Performing Category by Profit** | Home Decor (₹8.69M / 10.91% share) |
+### Core Business Metrics & Results
+* **Total Aggregated Revenue:** ₹533.67 Million
+* **Total Net Profit:** ₹79.71 Million
+* **Net Profit Margin:** **14.94%**
+* **Top Profit-Generating Categories:** Furniture (₹8.69M / 10.91%) & Home Decor (₹8.56M / 10.74%)
+* **High-Demand Stock Out Alerts Triggered:** 5 Categories (>1,500 units sold threshold)
 
 ---
 
-## Setup & Execution Instructions
+## Technical Architecture
 
-### Prerequisites
-- MySQL Server 8.0+
-- Python 3.10+
-- Power BI Desktop (optional, for viewing dashboard)
-
-### 1. Database Setup
-Execute the SQL schema and analytical transformation files:
-```bash
-mysql -u root -p < sql/schema.sql
+```text
+┌────────────────┐      ┌─────────────────┐      ┌──────────────────┐      ┌─────────────────┐
+│  Source Logs   │ ───► │  MySQL Engine   │ ───► │  Power BI Cockpit │ ───► │ Python Backend  │
+│ 5k Trans. CSV  │      │ SQL CTEs & Window│      │  Payment Heatmap │      │ Stock Velocity  │
+│ (Raw File)     │      │ Functions (8.0) │      │  Category Share  │      │ Audit & Alerts  │
+└────────────────┘      └─────────────────┘      └──────────────────┘      └─────────────────┘l/schema.sql
 mysql -u root -p < sql/clv_segmentation.sql
