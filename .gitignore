@@ -1,0 +1,30 @@
+# Environment and Credentials
+.env
+config/config.py
+*.pem
+
+# Python Artifacts
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Data & Large Files
+data/raw/*.csv
+*.xlsx
+*.xls
+
+# IDE & Editor Files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
