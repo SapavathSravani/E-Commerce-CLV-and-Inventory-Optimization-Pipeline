@@ -1,28 +1,19 @@
-# Environment and Credentials
-.env
-config/config.py
-*.pem
-
-# Python Artifacts
+# # Python
 __pycache__/
 *.py[cod]
 *$py.class
-*.so
-.Python
+.venv/
 env/
 venv/
-ENV/
-.venv
+*.env
 
-# Data & Large Files
-data/raw/*.csv
-*.xlsx
-*.xls
-
-# IDE & Editor Files
+# IDE / OS
 .vscode/
 .idea/
-*.swp
+.DS_Store
+
+# Data & Logs
+*.log
 *.swo
 
 # OS Generated Files
